@@ -1,0 +1,30 @@
+{
+  "name": "rocketfinance",
+  "version": "1.0.0",
+  "description": "This project is an application that can be used to track ones personal expenses and income.",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morgan-moreno25/expense-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/morgan-moreno25/expense-tracker/issues"
+  },
+  "homepage": "https://github.com/morgan-moreno25/expense-tracker#readme",
+  "devDependencies": {
+    "electron": "^9.1.2",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.27"
+  }
+}

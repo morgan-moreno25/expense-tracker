@@ -116,8 +116,6 @@ body {
     height: 100%;
     width: 100%;
 }
-
-
 #ledger {
     grid-area: ledger;
     height: 100%;
@@ -137,6 +135,13 @@ body {
 #income-table-container {
     grid-area: income;
     border: 1px solid black;
+}
+#income-table > thead, #expense-table > thead {
+    text-align: center;
+}
+#income-table > tbody, #expense-table > tbody {
+    text-align: center;
+    font-weight: bold;
 }
 #expense-table-container {
     grid-area: expenses;

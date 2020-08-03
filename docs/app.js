@@ -333,6 +333,9 @@ class View {
             };
 
             controller.addExpense(newExpense);
+            this.clearExpenseTable();
+            this.renderExpenseTable();
+            this.renderBalanceDisplays();
         });
     };
     renderIncomeForm(){
@@ -348,7 +351,10 @@ class View {
             };
 
             controller.addIncome(newIncome);
-        })
+            this.clearIncomeTable();
+            this.renderIncomeTable();
+            this.renderBalanceDisplays();
+        });
     };
     renderBalanceDisplays(){
         let netIncome = controller.totalIncome();
