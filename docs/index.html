@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e328748d0b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script defer src="app.js"></script>
+    <title>Rocket Finance</title>
+</head>
+<body>
+    <div id="app">
+        <header id="main-header">
+            <i class="fas fa-rocket fa-5x" id="logo"></i>
+            <p>Rocket Finance</p>
+            <a href="https://www.twitter.com/morganm222" id="twitter"><i class="fab fa-twitter-square fa-3x"></i></a>
+            <a href="https://www.github.com/morgan-moreno25" id="github"><i class="fab fa-github-square fa-3x"></i></a>
+        </header>
+
+        <nav id="nav">
+
+            <section id="form-nav">
+                <div class="btn-group">
+                    <button class="btn btn-danger" id="expense-form-toggle">Expense</button>
+                    <button class="btn btn-success" id="income-form-toggle">Income</button>
+                </div>
+                
+            </section>
+            
+            <section id="form-container">
+                
+            </section>
+        </nav>
+
+        <section id="ledger">
+
+            <section id="balance-display">
+                <div id="balance" class="card">
+                    <h3>Net Balance</h3>
+                    <p id="net-balance">$</p>
+                </div>
+                <div id="income" class="card">
+                    <h3>Income</h3>
+                    <p id="net-income">$</p>
+                </div>
+                <div id="expenses" class="card">
+                    <h3>Expenses</h3>
+                    <p id="net-expenses">$</p>
+                </div>
+            </section>
+
+            <section id="income-table-container">
+
+            </section>
+
+            <section id="expense-table-container">
+
+            </section>
+
+        </section>
+    </div>
+</body>
+</html>

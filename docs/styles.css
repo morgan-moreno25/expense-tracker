@@ -1,0 +1,154 @@
+html[data-theme="default"] {
+    --global-bg-color: #f2f7ff;
+    --global-nav-bg: #6c6f73;
+    --gloabl-header-bg: #000;
+}
+html[data-theme="netGain"] {
+    --global-bg-color: #c4ffe1;
+    --global-nav-bg: #6c6f73;
+    --gloabl-header-bg: #000;
+}
+html[data-theme="netLoss"] {
+    --global-bg-color: #ffc4c9;
+    --global-nav-bg: #6c6f73;
+    --gloabl-header-bg: #000;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: var(--global-bg-color);
+    transition: all 1s;
+}
+#app {
+    display: grid;
+    grid-template-columns: 25vw 75vw;
+    grid-template-rows: 10vh 90vh;
+    grid-template-areas:
+        "header header"
+        "nav ledger";
+}
+#main-header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 10vw 80vw 10vw;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "icon title github"
+    "icon title twitter";
+    background: var(--gloabl-header-bg);
+    color: white;
+}
+#main-header > #logo {
+    grid-area: icon;
+    justify-self: center;
+    align-self: center;
+}
+#main-header > p {
+    grid-area: title;
+    justify-self: center;
+    align-self: center;
+    font-size: 40px;
+    text-decoration: underline;
+}
+#main-header > #twitter {
+    grid-area: twitter;
+    justify-self: right;
+    align-self: center;
+    color: white;
+}
+#main-header > #github {
+    grid-area: github;
+    justify-self: right;
+    align-self: center;
+    color: white;
+}
+#nav {
+    grid-area: nav;
+    height: 100%;
+    width: 100%;
+    background: var(--global-nav-bg);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20% 60% 20%;
+    grid-template-areas:
+        "form-nav"
+        "form"
+        ".";
+    border: 1px solid var(--gloabl-header-bg);
+    transition: all 1s;
+}
+#form-nav {
+    grid-area: form-nav;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+#form-container {
+    grid-area: form;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+#expense-form, #income-form {
+    background: white;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 25%);
+    justify-items: center;
+    align-items: center;
+}
+#expense-form > h3, #income-form > h3 {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+.form-group > label {
+    padding: 5px;
+    font-weight: bold;
+}
+.form-group > input {
+    margin-left: 5px;
+}
+#expense-form > button, #income-form > button {
+    height: 100%;
+    width: 100%;
+}
+
+
+#ledger {
+    grid-area: ledger;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 25% 75%;
+    grid-template-areas:
+        "balances balances"
+        "income expenses";
+    border: 1px solid var(--gloabl-header-bg);
+}
+#balance-display {
+    grid-area: balances;
+}
+#income-table-container {
+    grid-area: income;
+    border: 1px solid black;
+}
+#expense-table-container {
+    grid-area: expenses;
+    border: 1px solid black;
+}
+#balance, #income, #expenses {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 10px;
+}
+#net-balance, #net-income, #net-expenses {
+    font-size: 20px;
+}
