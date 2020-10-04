@@ -1,10 +1,29 @@
-# Rocket Finance
+# Expense Tracker
+
+
+## What
 
 This project is an application that can be used to track ones personal expenses and income.
 
-# OVERVIEW
+## Technology
 
-This project is built using HTML / CSS / Vanilla JS. It currently uses the browsers local storage for data storage, but I am currently working on creating a backend for the application.
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
 
-This project uses the MVC design pattern to dynamically render data to the page.
+## What I Learned
+
+From completing this project I gained experience with the following:
+
+  - Using localstorage as a way to save user data across sessions
+  - Using MVC design system
+  - Using JavaScript to dynamically render content
+  - Using JavaScript to change theme colors
+  - Working with Bootstrap component library
+  
+## Live
+
+You can check out a live demo of this application [here](https://morgan-moreno25.github.io/expense-tracker)
+
 
