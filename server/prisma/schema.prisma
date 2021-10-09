@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int    @id @default(autoincrement())
+  avatar    String @default("https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80")
+  firstName String @map("first_name")
+  lastName  String @map("last_name")
+  email     String @unique
+  password  String
+
+  transactions Transaction[]
+  @@map("users")
+}
+
+model Transaction {
+  id          Int             @id @default(autoincrement())
+  date        DateTime
+  amount      Float
+  description String
+  memo        String?
+  type        TransactionType
+  userId      Int
+
+
+  user User @relation(fields: [userId], references: [id])
+  @@map("transactions")
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
