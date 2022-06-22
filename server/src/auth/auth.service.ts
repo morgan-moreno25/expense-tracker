@@ -73,7 +73,7 @@ export class AuthService {
 		}
 	}
 
-	async loadUser(userId: number): Promise<Partial<User>> {
+	async loadUser(userId: string): Promise<Partial<User>> {
 		const user = await this.prisma.user.findUnique({
 			where: { id: userId },
 			select: {
