@@ -11,7 +11,7 @@ generator client {
 }
 
 model User {
-  id        Int    @id @default(autoincrement())
+  id        String    @id @default(uuid())
   avatar    String @default("https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80")
   firstName String @map("first_name")
   lastName  String @map("last_name")
@@ -23,13 +23,13 @@ model User {
 }
 
 model Transaction {
-  id          Int             @id @default(autoincrement())
+  id          String             @id @default(uuid())
   date        DateTime
   amount      Float
   description String
   memo        String?
   type        TransactionType
-  userId      Int
+  userId      String
 
 
   user User @relation(fields: [userId], references: [id])
