@@ -1,20 +1,18 @@
 import React, { FC } from 'react';
-import { Col, Row } from 'react-bootstrap';
-import NavLink from './NavLink';
+import { HStack, Link } from '@chakra-ui/react';
+import { Link as RRDLink } from 'react-router-dom';
 
 export interface UnauthorizedNavProps {}
 
-const UnauthorizedNav: FC<UnauthorizedNavProps> = () => {
-	return (
-		<Row className='mx-auto justify-center items-center'>
-			<Col xs={6} className='justify-center items-center'>
-				<NavLink to='/login'>Login</NavLink>
-			</Col>
-			<Col xs={6} className='justify-center items-center'>
-				<NavLink to='/register'>Register</NavLink>
-			</Col>
-		</Row>
-	);
-};
+const UnauthorizedNav: FC<UnauthorizedNavProps> = () => (
+  <HStack className="mx-auto justify-center items-center">
+    <Link as={RRDLink} to="/login">
+      Login
+    </Link>
+    <Link as={RRDLink} to="/register">
+      Register
+    </Link>
+  </HStack>
+);
 
 export default UnauthorizedNav;
