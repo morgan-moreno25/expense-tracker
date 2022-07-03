@@ -1,17 +1,26 @@
+import { Box } from '@chakra-ui/react';
 import React, { FC } from 'react';
 
 export interface DropdownItemProps {
-	onClick?: React.MouseEventHandler<HTMLSpanElement>;
+  onClick?: React.MouseEventHandler<HTMLSpanElement>;
+  children: React.ReactNode;
 }
 
-const DropdownItem: FC<DropdownItemProps> = ({ children, onClick }) => {
-	return (
-		<span
-			className='text-lg py-1 px-4 flex justify-center items-center text-black hover:bg-gray-200 cursor-pointer'
-			onClick={onClick}>
-			{children}
-		</span>
-	);
-};
+const DropdownItem: FC<DropdownItemProps> = ({ onClick, children }) => (
+  <Box
+    onClick={onClick}
+    fontSize={'lg'}
+    py={1}
+    px={4}
+    display={'flex'}
+    justifyContent={'center'}
+    alignItems={'center'}
+    color={'black'}
+    cursor={'pointer'}
+    _hover={{ background: 'gray.200' }}
+  >
+    {children}
+  </Box>
+);
 
 export default DropdownItem;

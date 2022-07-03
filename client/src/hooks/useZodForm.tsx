@@ -1,12 +1,8 @@
-import { useForm } from 'react-hook-form';
+import { DeepPartial, UnpackNestedValue, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 
-type DefaultValues = {
-	[key: string]: any;
-};
-
-export const useZodForm = (schema: z.ZodRawShape, defaultValues?: DefaultValues) => {
+export function useZodForm<T>(schema: z.ZodRawShape, defaultValues: T) {
 	const formSchema = z.object(schema);
 
 	const {
@@ -18,7 +14,7 @@ export const useZodForm = (schema: z.ZodRawShape, defaultValues?: DefaultValues)
 		setValue,
 		setError,
 	} = useForm({
-		defaultValues,
+		defaultValues: defaultValues as UnpackNestedValue<DeepPartial<T>>,
 		resolver: zodResolver(formSchema),
 	});
 
@@ -31,4 +27,4 @@ export const useZodForm = (schema: z.ZodRawShape, defaultValues?: DefaultValues)
 		setValue,
 		setError,
 	};
-};
+}

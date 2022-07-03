@@ -1,13 +1,22 @@
+import { Box } from '@chakra-ui/react';
 import React, { FC } from 'react';
 
-export interface DropdownTextProps {}
+export interface DropdownTextProps {
+  children: React.ReactNode;
+}
 
-const DropdownText: FC<DropdownTextProps> = ({ children }) => {
-	return (
-		<span className='text-lg py-1 px-4 flex justify-center items-center text-black'>
-			{children}
-		</span>
-	);
-};
+const DropdownText: FC<DropdownTextProps> = ({ children }) => (
+  <Box
+    py={1}
+    px={4}
+    fontSize="lg"
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    color="black"
+  >
+    {children}
+  </Box>
+);
 
 export default DropdownText;

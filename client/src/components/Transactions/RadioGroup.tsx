@@ -1,18 +1,17 @@
 import React, { FC } from 'react';
-import { FormGroup, FormLabel } from 'react-bootstrap';
+import { FormControl, FormLabel } from '@chakra-ui/react';
 
 export interface RadioGroupProps {
-	controlId: string;
-	label: string;
+  controlId: string;
+  label: string;
+  children: React.ReactNode;
 }
 
-const RadioGroup: FC<RadioGroupProps> = ({ controlId, label, children }) => {
-	return (
-		<FormGroup controlId={controlId} className='p-2 flex gap-2 items-center'>
-			{children}
-			<FormLabel className='m-0'>{label}</FormLabel>
-		</FormGroup>
-	);
-};
+const RadioGroup: FC<RadioGroupProps> = ({ controlId, label, children }) => (
+  <FormControl p={2} display={'flex'} gap={2} alignItems={'center'}>
+    {children}
+    <FormLabel m={0}>{label}</FormLabel>
+  </FormControl>
+);
 
 export default RadioGroup;

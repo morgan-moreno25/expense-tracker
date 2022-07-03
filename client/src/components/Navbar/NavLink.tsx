@@ -1,22 +1,42 @@
 import React, { FC } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from '@chakra-ui/react';
+import { Link as RRDLink, useLocation } from 'react-router-dom';
 
 export interface NavLinkProps {
-	to: string;
+  to: string;
+  children: React.ReactNode;
 }
 
 const NavLink: FC<NavLinkProps> = ({ to, children }) => {
-	const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-	const active = pathname === to ? 'text-blue-200 font-bold' : 'text-gray-200';
+  const active = pathname === to;
+  const TO = to;
+  const HOVER = {
+    background: 'gray.600',
+  };
+  const PADDING = 2;
+  const CURSOR = active ? 'default' : 'pointer';
+  const ROUNDED = 'xl';
+  const TEXT_DECORATION = 'none';
+  const COLOR = active ? 'blue.200' : 'gray.200';
+  const FONT_WEIGHT = active ? 'bold' : 'normal';
 
-	return (
-		<Link
-			to={to}
-			className={`${active} cursor-pointer hover:bg-gray-600 p-2 rounded-xl no-underline`}>
-			{children}
-		</Link>
-	);
+  return (
+    <Link
+      as={RRDLink}
+      to={TO}
+      _hover={HOVER}
+      p={PADDING}
+      cursor={CURSOR}
+      rounded={ROUNDED}
+      textDecoration={TEXT_DECORATION}
+      color={COLOR}
+      fontWeight={FONT_WEIGHT}
+    >
+      {children}
+    </Link>
+  );
 };
 
 export default NavLink;

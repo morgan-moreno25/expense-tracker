@@ -7,13 +7,12 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
 ReactDOM.render(
-	<Router>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</Router>,
-	document.getElementById('root')
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>,
+  document.getElementById('root'),
 );
