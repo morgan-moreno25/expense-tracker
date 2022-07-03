@@ -22,7 +22,7 @@ export interface CreateTransactionRequestBodyDto {
 	type: TransactionType;
 }
 export interface UpdateTransactionDto {
-	transactionId: number;
+	transactionId: string;
 	transaction: CreateTransactionRequestBodyDto;
 }
 export interface DeleteTransactionResponseDto {

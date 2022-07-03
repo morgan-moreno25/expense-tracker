@@ -3,11 +3,11 @@ import { Express } from 'express';
 declare global {
 	namespace Express {
 		interface Request {
-			userId?: number;
+			userId?: string;
 		}
 	}
 }
 
 export interface DecodedToken {
-	id: number;
+	id: string;
 }

@@ -56,7 +56,7 @@ export class TransactionsController {
 		@Param('transactionId') transactionId: string,
 	): Promise<SingleTransactionResponseDto> {
 		const transaction = await this.transactionService.getById(
-			Number(transactionId),
+			transactionId,
 			req.userId,
 		);
 
@@ -88,7 +88,7 @@ export class TransactionsController {
 	@HttpCode(200)
 	@UseGuards(AuthGuard)
 	async updateTransaction(
-		@Param('transactionId') transactionId: number,
+		@Param('transactionId') transactionId: string,
 		@Body() body: CreateTransactionRequestBodyDto,
 	): Promise<SingleTransactionResponseDto> {
 		const transaction = await this.transactionService.update({
@@ -105,7 +105,7 @@ export class TransactionsController {
 	@HttpCode(200)
 	@UseGuards(AuthGuard)
 	async deleteTransaction(
-		@Param('transactionId') transactionId: number,
+		@Param('transactionId') transactionId: string,
 	): Promise<DeleteTransactionResponseDto> {
 		await this.transactionService.delete(transactionId);
 

@@ -1,4 +1,4 @@
-import { Prisma, Transaction, TransactionType } from '.prisma/client';
+import { Transaction } from '.prisma/client';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import {
@@ -18,7 +18,7 @@ export class TransactionsService {
 
 	async getByQuery(
 		query: TransactionsQueryDto,
-		userId: number,
+		userId: string,
 	): Promise<TransactionsQueryResponse> {
 		const {
 			pagination: { skip, take },
@@ -49,7 +49,7 @@ export class TransactionsService {
 		};
 	}
 
-	async getById(transactionId: number, userId: number): Promise<Transaction> {
+	async getById(transactionId: string, userId: string): Promise<Transaction> {
 		const transaction = await this.prisma.transaction.findUnique({
 			where: {
 				id: transactionId,
@@ -68,7 +68,7 @@ export class TransactionsService {
 
 	async create(
 		transaction: CreateTransactionRequestBodyDto,
-		userId: number,
+		userId: string,
 	): Promise<Transaction> {
 		return await this.prisma.transaction.create({
 			data: {
@@ -91,7 +91,7 @@ export class TransactionsService {
 			},
 		});
 	}
-	async delete(transactionId: number): Promise<void> {
+	async delete(transactionId: string): Promise<void> {
 		await this.prisma.transaction.delete({
 			where: {
 				id: transactionId,
